@@ -37,7 +37,7 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
 function showTeamPosition(position) {
     /* Com if
     
-        if (position > 5) {
+        if (position > 5 || position < 1) {
             return console.log('Não temos a informação do time que está nessa posição.')
         }
 
@@ -45,7 +45,7 @@ function showTeamPosition(position) {
     */
 
     /* Com ternário
-         return position > 5 ? console.log('Não temos a informação do time que está nessa posição.') : console.log(`O time que está em ${position}° lugar é o ${teams[position - 1]}.`)
+         return position > 5 || position < 1 ? console.log('Não temos a informação do time que está nessa posição.') : console.log(`O time que está em ${position}° lugar é o ${teams[position - 1]}.`)
      */
 
     switch (position) {
@@ -105,26 +105,30 @@ Crie uma função chamada `convertToHex`, com as seguintes características:
 */
 
 function convertToHex(color) {
+    var hexa
+
     switch(color){
         case 'red':
-            console.log(`O hexadecimal para a cor ${color} é FF0000.`)
+            hexa =  'FF0000'
             break
         case 'green':
-            console.log(`O hexadecimal para a cor ${color} é 00FF00.`)
+            hexa = '00FF00'
             break
         case 'blue':
-            console.log(`O hexadecimal para a cor ${color} é 0000FF.`)
+            hexa = '0000FF'
             break
         case 'white':
-            console.log(`O hexadecimal para a cor ${color} é FFFFFF.`)
+            hexa = 'FFFFFF'
             break
         case 'black':
-            console.log(`O hexadecimal para a cor ${color} é 000000.`)
+            hexa = '000000'
             break
         default:
             console.log(`Não temos o equivalente hexadecimal para ${color}.`)
             break
     }
+
+    return console.log(`O hexadecimal para a cor ${color} é ${hexa}.`)
 }
 
 

@@ -7,6 +7,7 @@ para o contrário.
 
 const isTruthy = function(param){
     return param ? true : false
+    // pode ser assim: return !!param
 }
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
@@ -106,7 +107,7 @@ Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
 
 carro.obterMarcaModelo = function() {
-    return `Esse carro é um ${carro.marca} ${carro.modelo}`
+    return `Esse carro é um ${carro.obterMarca()} ${carro.obterModelo()}`
 }
 
 /*
@@ -126,23 +127,23 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 
-carro.pessoas = 0
-
 carro.addPessoas = function(num) {
-    const assentosDisponiveis = carro.assentos - carro.pessoas
-    const pessoas = (assentosDisponiveis) === 1 ? 'pessoa' : 'pessoas'
+    const totalPessoas = carro.quantidadePessoas + num
 
-    if(carro.pessoas === carro.assentos){
+    if(carro.quantidadePessoas === carro.assentos && totalPessoas >= carro.assentos){
         return 'O carro já está lotado!'
+    } 
 
-    } else if(carro.pessoas + num > carro.assentos) {
-        return `Só cabem mais ${assentosDisponiveis} ${pessoas}!`
+    if(totalPessoas > carro.assentos) {
+        const assentosDisponiveis = carro.assentos - carro.quantidadePessoas
+        const pluSing = (assentosDisponiveis) === 1 ? 'pessoa' : 'pessoas'
 
-    } else {
-        carro.pessoas += num
-        
-        return `Já temos ${carro.pessoas} pessoas no carro!`
+        return `Só cabem mais ${assentosDisponiveis} ${pluSing}!`
     }
+    
+    carro.quantidadePessoas += num
+        
+    return `Já temos ${carro.quantidadePessoas} pessoas no carro!`
     
 }
 
@@ -159,12 +160,12 @@ Qual a cor atual do carro?
 
 // Mude a cor do carro para vermelho.
 
-//carro.mudarCor('white')
+//carro.mudarCor('red')
 
 // E agora, qual a cor do carro?
 
-//console.log(carro.obterCor()) // white
-
+//console.log(carro.obterCor()) // red
+ 
 // Mude a cor do carro para verde musgo.
 
 //carro.mudarCor('verde-musgo')
@@ -178,11 +179,11 @@ Qual a cor atual do carro?
 //console.log(carro.obterMarcaModelo()) // 'Esse carro é um BMW 320i'
 
 // Adicione 2 pessoas no carro.
-console.log(carro.addPessoas(1))
+console.log(carro.addPessoas(2))
 
 // Adicione mais 4 pessoas no carro.
 
-console.log(carro.addPessoas(3))
+console.log(carro.addPessoas(4))
 
 // Faça o carro encher.
 
@@ -190,7 +191,7 @@ console.log(carro.addPessoas(3))
 
 // Tire 4 pessoas do carro.
 
-carro.pessoas -= 4
+console.log(carro.addPessoas(-4))
 
 // Adicione 10 pessoas no carro.
 
@@ -198,4 +199,4 @@ console.log(carro.addPessoas(10))
 
 // Quantas pessoas temos no carro?
 
-console.log(carro.pessoas)
+console.log(carro.quantidadePessoas)

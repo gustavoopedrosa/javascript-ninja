@@ -64,7 +64,7 @@ console.log( 'Números ímpares entre 10 e 20:' );
 
 var otherNum = 10
 
-while(otherNum <= 20){
+while(otherNum < 20){
     otherNum % 2 !== 0 ? console.log(otherNum) : ''
     otherNum++
 }

@@ -2,14 +2,12 @@
 Crie uma variável qualquer, que receba um array com alguns valores aleatórios
 - ao menos 5 - (fica por sua conta os valores do array).
 */
-// ?
-
+ 
 const myArray = [1, 'gustavo', true, 5, 10]
 
 /*
 Crie uma função que receba um array como parâmetro, e retorne esse array.
 */
-// ?
 
 function returnArray(array) {
     return array
@@ -18,7 +16,6 @@ function returnArray(array) {
 /*
 Imprima o segundo índice do array retornado pela função criada acima.
 */
-// ?
 
 console.log(returnArray([1, 2, 5, 6, 7])[1]) // 2
 
@@ -28,7 +25,6 @@ segundo, um número. A função deve retornar o valor de um índice do array que
 no primeiro parâmetro. O índice usado para retornar o valor, deve ser o número passado no
 segundo parâmetro.
 */
-// ?
 
 function twoParams(array, i) {
     return array[i]
@@ -37,7 +33,6 @@ function twoParams(array, i) {
 /*
 Declare uma variável que recebe um array com 5 valores, de tipos diferentes.
 */
-// ?
 
 const myArray2 = [1, 'gustavo', true, {}, function(){}]
 
@@ -45,13 +40,12 @@ const myArray2 = [1, 'gustavo', true, {}, function(){}]
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
-// ?
 
 console.log(twoParams(myArray2, 0)) // 1
 console.log(twoParams(myArray2, 1)) // 'gustavo'
 console.log(twoParams(myArray2, 2)) // true
 console.log(twoParams(myArray2, 3)) // {}
-console.log(twoParams(myArray2, 4)) // [function]
+console.log(twoParams(myArray2, 4)) // [Function (anonymous)]
 
 /*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
@@ -67,7 +61,6 @@ propriedades:
 - Se o parâmetro não for passado, a função deve retornar o objeto com todos
 os livros.
 */
-// ?
 
 function bookFinder(name) {
     const obj = {
@@ -103,9 +96,8 @@ function bookFinder(name) {
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
-// ?
 
-console.log(bookFinder('livro4'))
+console.log(bookFinder())
 
 // {
 //     livro1: {
@@ -130,7 +122,6 @@ Ainda com a função acima, imprima a quantidade de páginas de um livro qualque
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-// ?
 
 console.log(bookFinder('livro2')) 
 
@@ -148,7 +139,6 @@ Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
 a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
-// ?
 
 console.log(bookFinder('livro3')) 
 
@@ -167,7 +157,6 @@ Ainda com a função acima, imprima o nome da editora de um livro qualquer, usan
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-// ?
 
 console.log(bookFinder('livro1')) 
 
