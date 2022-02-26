@@ -11,7 +11,7 @@
     resolver o problema corretamente.
     */
     var five = Number('5');
-    
+
     console.log(five + ' é número?', typeof five === 'number');
 
     var concat = String(10) + String(10);
@@ -26,21 +26,21 @@
     função receberá dois parâmetros e retornará a operação referente à sua
     propriedade, usando os valores passados por parâmetro.
     */
-    
+
     const operation = {
-        '+': function(num1, num2){
+        '+': function (num1, num2) {
             return num1 + num2
         },
-        '-': function(num1, num2){
+        '-': function (num1, num2) {
             return num1 - num2
         },
-        '*': function(num1, num2){
+        '*': function (num1, num2) {
             return num1 * num2
         },
-        '/': function(num1, num2){
+        '/': function (num1, num2) {
             return num1 / num2
         },
-        '%': function(num1, num2){
+        '%': function (num1, num2) {
             return num1 % num2
         }
     }
@@ -61,7 +61,12 @@
         //     return true
         // }
         // return false
-        return operator === '+' || operator === '-' || operator === '*' || operator === '/' || operator === '%'
+
+        // return operator === '+' || operator === '-' || operator === '*' || operator === '/' || operator === '%'
+
+        // return operation[operator] !== undefined
+
+        return !!operation[operator] // Funciona pois function é um valor Trufy e undefined é um valor Falsy
     }
 
     /*
@@ -78,12 +83,12 @@
     */
 
     function calculator(operator) {
-        if(!isOperatorValid(operator)) {
+        if (!isOperatorValid(operator)) {
             return 'false'
         }
-    
-        return function(num1, num2) {
-            if(typeof num1 !== 'number' || typeof num2 !== 'number'){
+
+        return function (num1, num2) {
+            if (typeof num1 !== 'number' || typeof num2 !== 'number') {
                 return 'false'
             }
             return operation[operator](num1, num2)
@@ -98,7 +103,7 @@
     'A operação [NUMBER1] [OPERATOR] [NUMBER2] =';
     Essa função mostrará a mensagem da operação que criaremos mais abaixo.
     */
-   
+
     function showOperationMessage(operator, num1, num2) {
         return `A operação ${num1} ${operator} ${num2} = `
     }
@@ -109,7 +114,7 @@
     Essa função deverá retornar a frase:
     'Operação "[OPERATOR]" não permitida!'
     */
-    
+
     function showErrorMessage(notValidOperator) {
         return `Operação "${notValidOperator}" não permitida!`
     }
@@ -120,7 +125,7 @@
     - Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
     "operationSignal", sem valor por enquanto.
     */
-    
+
     var number1 = 5
     var number2 = 50
     var operationSignal
@@ -131,10 +136,10 @@
     variável chamada "sum", que receba a função "calculator", passando por
     parâmetro a variável que recebeu o sinal da operação.
     */
-    
+
     var operationSignal = '+'
     var sum = calculator(operationSignal)
-    
+
     /*
     PASSO 3:
     "sum" agora é uma função, e, se o sinal correto não foi passado para a
@@ -150,7 +155,7 @@
 
     sum !== 'false' ? console.log(showOperationMessage(operationSignal, number1, number2), sum(number1, number2)) : console.log(showErrorMessage(operationSignal))
 
-    
+
 
     /*
     Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
